@@ -92,4 +92,6 @@ return require("packer").startup(function(use)
 	use({ "windwp/nvim-autopairs" })
 
 	use("alec-gibson/nvim-tetris")
+
+	use("numToStr/Comment.nvim")
 end)
