@@ -15,6 +15,7 @@ require("nvim-tree").setup({
 	disable_netrw = true,
 	view = {
 		relativenumber = true,
+		width = 50,
 	},
 	actions = {
 		open_file = {
