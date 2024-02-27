@@ -19,6 +19,9 @@ require("formatter").setup({
 		javascript = {
 			require("formatter.filetypes.javascript").prettier,
 		},
+		html = {
+			require("formatter.filetypes.html").prettier,
+		},
 		json = {
 			require("formatter.filetypes.json").prettier,
 		},

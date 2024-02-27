@@ -3,4 +3,11 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.wo.number = true
 vim.wo.relativenumber = true
 
-vim.keymap.set("n", "<leader>nh", vim.cmd.noh)
+vim.api.nvim_create_autocmd("InsertEnter", {
+	pattern = "*",
+	callback = function()
+		vim.schedule(function()
+			vim.cmd("noh")
+		end)
+	end,
+})

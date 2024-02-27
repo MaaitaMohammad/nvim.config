@@ -15,10 +15,11 @@ return require("packer").startup(function(use)
 	})
 
 	use({
-		"ellisonleao/gruvbox.nvim",
-		as = "gruvbox",
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
 		config = function()
-			vim.cmd("colorscheme gruvbox")
+			vim.cmd("colorscheme tokyonight-night")
 		end,
 	})
 
