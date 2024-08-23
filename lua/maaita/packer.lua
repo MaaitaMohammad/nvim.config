@@ -15,13 +15,22 @@ return require("packer").startup(function(use)
 	})
 
 	use({
-		"folke/tokyonight.nvim",
-		lazy = false,
-		priority = 1000,
+		"princejoogie/dir-telescope.nvim",
+		-- telescope.nvim is a required dependency
+		requires = { "nvim-telescope/telescope.nvim" },
 		config = function()
-			vim.cmd("colorscheme tokyonight-night")
+			require("dir-telescope").setup({
+				-- these are the default options set
+				hidden = true,
+				no_ignore = false,
+				show_preview = true,
+			})
 		end,
 	})
+
+	use({ "EdenEast/nightfox.nvim" })
+
+	use({ "savq/melange-nvim" })
 
 	use({
 		"nvim-treesitter/nvim-treesitter",
@@ -62,6 +71,7 @@ return require("packer").startup(function(use)
 			-- Snippets
 			{ "L3MON4D3/LuaSnip" },
 			{ "rafamadriz/friendly-snippets" },
+			{ "ranjithshegde/ccls.nvim" },
 		},
 	})
 
@@ -95,4 +105,31 @@ return require("packer").startup(function(use)
 	use("alec-gibson/nvim-tetris")
 
 	use("numToStr/Comment.nvim")
+
+	use("mcookly/bidi.nvim")
+
+	use("edgedb/edgedb-vim")
+
+	use({
+		"VonHeikemen/fine-cmdline.nvim",
+		requires = {
+			"MunifTanjim/nui.nvim",
+		},
+	})
+
+	use({
+		"gelguy/wilder.nvim",
+	})
+
+	use({
+		"kristijanhusak/vim-dadbod-ui",
+		requires = {
+			{ "tpope/vim-dadbod", lazy = true },
+			{ "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" }, lazy = true },
+		},
+	})
+
+	use({
+		"David-Kunz/gen.nvim",
+	})
 end)

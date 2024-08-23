@@ -44,6 +44,21 @@ require("mason-lspconfig").setup({
 			local lua_opts = lsp_zero.nvim_lua_ls()
 			require("lspconfig").lua_ls.setup(lua_opts)
 		end,
+		tailwindcss = function()
+			local lspconfig = require("lspconfig")
+
+			lspconfig.tailwindcss.setup({
+				settings = {
+					tailwindCSS = {
+						experimental = {
+							classRegex = {
+								{ "cn\\(([^)]*)\\)", "(?:\"|'|`)([^(?:\"|'|`)]*)(?:\"|'|`)" },
+							},
+						},
+					},
+				},
+			})
+		end,
 	},
 })
 
@@ -66,3 +81,5 @@ cmp.setup({
 		["<C-i>"] = cmp.mapping.complete(),
 	}),
 })
+
+require("ccls").setup({ lsp = { use_defaults = true } })

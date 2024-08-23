@@ -11,7 +11,7 @@ end
 
 require("nvim-tree").setup({
 	on_attach = my_on_attach,
-	hijack_cursor = true,
+	hijack_cursor = false,
 	disable_netrw = true,
 	view = {
 		relativenumber = true,

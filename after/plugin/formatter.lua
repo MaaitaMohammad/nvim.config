@@ -19,6 +19,12 @@ require("formatter").setup({
 		javascript = {
 			require("formatter.filetypes.javascript").prettier,
 		},
+		mjs = {
+			require("formatter.filetypes.javascript").prettier,
+		},
+		javascriptreact = {
+			require("formatter.filetypes.typescriptreact").prettier,
+		},
 		html = {
 			require("formatter.filetypes.html").prettier,
 		},
@@ -46,6 +52,9 @@ require("formatter").setup({
 		cpp = {
 			require("formatter.filetypes.cpp").clangformat,
 		},
+		c = {
+			require("formatter.filetypes.c").clangformat,
+		},
 		prisma = {
 			function()
 				return {
@@ -59,8 +68,15 @@ require("formatter").setup({
 				}
 			end,
 		},
+		esdl = {},
+		go = {
+			require("formatter.filetypes.go").gofmt,
+		},
 		java = {
 			require("formatter.filetypes.java").clangformat,
+		},
+		css = {
+			require("formatter.filetypes.css").prettier,
 		},
 		-- Use the special "*" filetype for defining formatter configurations on
 		-- any filetype
@@ -68,6 +84,11 @@ require("formatter").setup({
 			-- "formatter.filetypes.any" defines default configurations for any
 			-- filetype
 			require("formatter.filetypes.any").remove_trailing_whitespace,
+			function()
+				if util.get_current_buffer_file_name():find("^tsconfig") ~= nil then
+					return require("formatter.filetypes.json").prettier()
+				end
+			end,
 		},
 	},
 })
