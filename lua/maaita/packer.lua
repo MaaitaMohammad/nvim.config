@@ -106,6 +106,8 @@ return require("packer").startup(function(use)
 
 	use("numToStr/Comment.nvim")
 
+	use("JoosepAlviste/nvim-ts-context-commentstring")
+
 	use("mcookly/bidi.nvim")
 
 	use("edgedb/edgedb-vim")
