@@ -134,4 +134,8 @@ return require("packer").startup(function(use)
 	use({
 		"David-Kunz/gen.nvim",
 	})
+
+	use({
+		"f-person/git-blame.nvim",
+	})
 end)
